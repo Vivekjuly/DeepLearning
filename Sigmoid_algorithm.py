@@ -28,7 +28,7 @@ def calc_gradient_descent():
       derivative_w += gradient_w(w, b, x, y)
       derivative_b += gradient_b(w, b, x, y)
       
-      w = w - eta * derivative_w
+      w = w - eta * derivative_w # new  w  = w - eta * derivative_w
       b = b - eta * derivative_b
     
     
