@@ -8,16 +8,16 @@ def calculate_error(w, b):
   err = 0.0
   for x, y in zip(X, Y):
     y_predicted =sigmoid_function(w, b, x)
-    err += 0.5 * (y - y_predicted) ** 2 # Root Mean Square Error = 1/2 (y-predictedy)squared
+    err += -[(1-y) * math.log(1 - y_predicted, 2) + y * math.log(y_predicted, 2)]
   return err
 
 def gradient_b(w, b, x, y):
   fx = sigmoid_function(w, b, x)
-  return (fx - y ) * fx * (1 - fx)
+  return (fx - y )
 
 def gradient_w(w, b, x, y):
   fx = sigmoid_function(w, b, x)
-  return (fx - y) * fx * (1 - fx ) * x
+  return (fx - y) * x
 
 def calc_gradient_descent():
   w,b,eta = -2, -2, 1.0 #eta is the learning rate
